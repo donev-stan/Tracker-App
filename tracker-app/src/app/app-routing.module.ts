@@ -9,6 +9,7 @@ const routes: Routes = [
         (m) => m.FoodTrackerModule
       ),
   },
+  { path: 'fitness-tracker', loadChildren: () => import('./fitness-tracker/fitness-tracker.module').then(m => m.FitnessTrackerModule) },
 ];
 
 @NgModule({
