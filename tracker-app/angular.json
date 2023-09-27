@@ -24,7 +24,49 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": ["src/assets", "src/assets/images/favicon.png"],
-            "styles": ["src/styles.scss"],
+            "styles": [
+              "src/styles.scss",
+              {
+                "input": "src/assets/themes/theme-bootstrap4-dark-blue.scss",
+                "bundleName": "bootstrap4-dark-blue",
+                "inject": false
+              },
+              {
+                "input": "src/assets/themes/theme-bootstrap4-dark-purple.scss",
+                "bundleName": "bootstrap4-dark-purple",
+                "inject": false
+              },
+              {
+                "input": "src/assets/themes/theme-bootstrap4-light-blue.scss",
+                "bundleName": "bootstrap4-light-blue",
+                "inject": false
+              },
+              {
+                "input": "src/assets/themes/theme-bootstrap4-light-purple.scss",
+                "bundleName": "bootstrap4-light-purple",
+                "inject": false
+              },
+              {
+                "input": "src/assets/themes/theme-md-dark-deeppurple.scss",
+                "bundleName": "md-dark-deeppurple",
+                "inject": false
+              },
+              {
+                "input": "src/assets/themes/theme-md-dark-indigo.scss",
+                "bundleName": "md-dark-indigo",
+                "inject": false
+              },
+              {
+                "input": "src/assets/themes/theme-md-light-deeppurple.scss",
+                "bundleName": "md-light-deeppurple",
+                "inject": false
+              },
+              {
+                "input": "src/assets/themes/theme-md-light-indigo.scss",
+                "bundleName": "md-light-indigo",
+                "inject": false
+              }
+            ],
             "scripts": []
           },
           "configurations": {
@@ -79,7 +121,49 @@
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": ["src/assets", "src/assets/images/favicon.png"],
-            "styles": ["src/styles.scss"],
+            "styles": [
+              "src/styles.scss",
+              {
+                "input": "src/assets/themes/theme-bootstrap4-dark-blue.scss",
+                "bundleName": "bootstrap4-dark-blue",
+                "inject": false
+              },
+              {
+                "input": "src/assets/themes/theme-bootstrap4-dark-purple.scss",
+                "bundleName": "bootstrap4-dark-purple",
+                "inject": false
+              },
+              {
+                "input": "src/assets/themes/theme-bootstrap4-light-blue.scss",
+                "bundleName": "bootstrap4-light-blue",
+                "inject": false
+              },
+              {
+                "input": "src/assets/themes/theme-bootstrap4-light-purple.scss",
+                "bundleName": "bootstrap4-light-purple",
+                "inject": false
+              },
+              {
+                "input": "src/assets/themes/theme-md-dark-deeppurple.scss",
+                "bundleName": "md-dark-deeppurple",
+                "inject": false
+              },
+              {
+                "input": "src/assets/themes/theme-md-dark-indigo.scss",
+                "bundleName": "md-dark-indigo",
+                "inject": false
+              },
+              {
+                "input": "src/assets/themes/theme-md-light-deeppurple.scss",
+                "bundleName": "md-light-deeppurple",
+                "inject": false
+              },
+              {
+                "input": "src/assets/themes/theme-md-light-indigo.scss",
+                "bundleName": "md-light-indigo",
+                "inject": false
+              }
+            ],
             "scripts": []
           }
         }

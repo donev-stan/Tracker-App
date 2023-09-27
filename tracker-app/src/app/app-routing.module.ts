@@ -1,7 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AppComponent } from './app.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    component: AppComponent,
+    pathMatch: 'full',
+  },
   {
     path: 'food-tracker',
     loadChildren: () =>
@@ -9,7 +15,13 @@ const routes: Routes = [
         (m) => m.FoodTrackerModule
       ),
   },
-  { path: 'fitness-tracker', loadChildren: () => import('./fitness-tracker/fitness-tracker.module').then(m => m.FitnessTrackerModule) },
+  {
+    path: 'fitness-tracker',
+    loadChildren: () =>
+      import('./fitness-tracker/fitness-tracker.module').then(
+        (m) => m.FitnessTrackerModule
+      ),
+  },
 ];
 
 @NgModule({
