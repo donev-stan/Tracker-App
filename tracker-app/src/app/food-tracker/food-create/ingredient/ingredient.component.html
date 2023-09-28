@@ -1,0 +1,80 @@
+<form [formGroup]="createIngredientForm">
+  <p-fieldset legend="Nutrition">
+    <div class="fieldset-inner">
+      <!-- Calories -->
+      <div class="control-group">
+        <div class="start">
+          <p class="nutrition-title">Calories:</p>
+          <p-inputNumber formControlName="calories" [min]="0" />
+        </div>
+
+        <p-slider
+          formControlName="calories"
+          [(ngModel)]="createIngredientForm.value.calories"
+          (onChange)="onSliderChange($event, 'calories')"
+          [animate]="true"
+        ></p-slider>
+      </div>
+
+      <!-- Fats -->
+      <div class="control-group">
+        <div class="start">
+          <p class="nutrition-title">Fats:</p>
+          <p-inputNumber formControlName="fats" [min]="0" [max]="100" />
+        </div>
+
+        <p-slider
+          formControlName="fats"
+          [(ngModel)]="createIngredientForm.value.fats"
+          (onChange)="onSliderChange($event, 'fats')"
+          [animate]="true"
+        ></p-slider>
+      </div>
+
+      <!-- Carbs -->
+      <div class="control-group">
+        <div class="start">
+          <p class="nutrition-title">Carbs:</p>
+          <p-inputNumber formControlName="carbs" [min]="0" [max]="100" />
+        </div>
+
+        <p-slider
+          formControlName="carbs"
+          [(ngModel)]="createIngredientForm.value.carbs"
+          (onChange)="onSliderChange($event, 'carbs')"
+          [animate]="true"
+        ></p-slider>
+      </div>
+
+      <!-- Fiber -->
+      <div class="control-group">
+        <div class="start">
+          <p class="nutrition-title">Fiber:</p>
+          <p-inputNumber formControlName="fiber" [min]="0" [max]="100" />
+        </div>
+
+        <p-slider
+          formControlName="fiber"
+          [(ngModel)]="createIngredientForm.value.fiber"
+          (onChange)="onSliderChange($event, 'fiber')"
+          [animate]="true"
+        ></p-slider>
+      </div>
+
+      <!-- Protein -->
+      <div class="control-group">
+        <div class="start">
+          <p class="nutrition-title">Protein:</p>
+          <p-inputNumber formControlName="protein" [min]="0" [max]="100" />
+        </div>
+
+        <p-slider
+          formControlName="protein"
+          [(ngModel)]="createIngredientForm.value.protein"
+          (onChange)="onSliderChange($event, 'protein')"
+          [animate]="true"
+        ></p-slider>
+      </div>
+    </div>
+  </p-fieldset>
+</form>

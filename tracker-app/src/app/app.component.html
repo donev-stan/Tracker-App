@@ -1,22 +1,14 @@
-<!-- <router-outlet></router-outlet> -->
+<p-dropdown
+  [options]="groupedThemes"
+  placeholder="Select a Theme"
+  [group]="true"
+  (onChange)="switchTheme($event)"
+>
+  <ng-template let-group pTemplate="group">
+    <div class="flex align-items-center">
+      <span>{{ group.label }}</span>
+    </div>
+  </ng-template>
+</p-dropdown>
 
-<button (click)="switchTheme('bootstrap4-dark-blue')">
-  bootstrap4-dark-blue
-</button>
-<button (click)="switchTheme('bootstrap4-dark-purple')">
-  bootstrap4-dark-purple
-</button>
-<button (click)="switchTheme('bootstrap4-light-blue')">
-  bootstrap4-light-blue
-</button>
-<button (click)="switchTheme('bootstrap4-light-purple')">
-  bootstrap4-light-purple
-</button>
-
-<div class="shadow-3">
-  <p-card header="Food Tracker" class="text-center">
-    <ng-template pTemplate="header">
-      <img alt="Food Tracker Logo" src="assets/images/food-tracker-logo.svg" />
-    </ng-template>
-  </p-card>
-</div>
+<router-outlet></router-outlet>

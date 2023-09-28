@@ -1,9 +1,42 @@
 import { NgModule } from '@angular/core';
 
+// Forms
+import { KeyFilterModule } from 'primeng/keyfilter';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { SliderModule } from 'primeng/slider';
+import { DropdownModule } from 'primeng/dropdown';
+import { KnobModule } from 'primeng/knob';
+
+// Panel
+import { FieldsetModule } from 'primeng/fieldset';
 import { CardModule } from 'primeng/card';
 
+// Chart
+import { ChartModule } from 'primeng/chart';
+
 @NgModule({
-  imports: [CardModule],
-  exports: [CardModule],
+  imports: [
+    CardModule,
+    KeyFilterModule,
+    SliderModule,
+    InputTextModule,
+    InputNumberModule,
+    DropdownModule,
+    FieldsetModule,
+    ChartModule,
+    KnobModule,
+  ],
+  exports: [
+    CardModule,
+    KeyFilterModule,
+    SliderModule,
+    InputTextModule,
+    InputNumberModule,
+    DropdownModule,
+    FieldsetModule,
+    ChartModule,
+    KnobModule,
+  ],
 })
 export class PrimeNgModule {}
