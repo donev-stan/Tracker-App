@@ -15,6 +15,10 @@ import { CardModule } from 'primeng/card';
 // Chart
 import { ChartModule } from 'primeng/chart';
 
+// Directives
+import { AnimateModule } from 'primeng/animate';
+import { RippleModule } from 'primeng/ripple';
+
 @NgModule({
   imports: [
     CardModule,
@@ -26,6 +30,8 @@ import { ChartModule } from 'primeng/chart';
     FieldsetModule,
     ChartModule,
     KnobModule,
+    AnimateModule,
+    RippleModule,
   ],
   exports: [
     CardModule,
@@ -37,6 +43,8 @@ import { ChartModule } from 'primeng/chart';
     FieldsetModule,
     ChartModule,
     KnobModule,
+    AnimateModule,
+    RippleModule,
   ],
 })
 export class PrimeNgModule {}

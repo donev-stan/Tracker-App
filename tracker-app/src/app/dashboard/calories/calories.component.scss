@@ -13,3 +13,32 @@
 .under-the-goal {
   color: var(--green-400);
 }
+
+.p-knob-container {
+  position: relative;
+
+  .burned-calories-icon {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    font-size: 1.5rem;
+  }
+
+  .knob-value {
+    position: absolute;
+    top: 27%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem;
+    color: var(--text-color-secondary);
+  }
+
+  .additional-value {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1rem;
+  }
+}

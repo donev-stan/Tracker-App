@@ -7,50 +7,62 @@ import { DashboardService } from 'src/shared/services/dashboard.service';
   styleUrls: ['./calories.component.scss'],
 })
 export class CaloriesComponent {
-  currentCaloriesKnobValue: number = 1400;
+  knobValueColor: string = 'SlateGray';
+  knobRangeColor: string = 'MediumTurquoise';
 
-  private _currentCalories: number = 1600;
+  private _currentCaloriesKnobValue: number = 0;
 
-  get currentCalories(): number {
-    return this._currentCalories;
+  get currentCaloriesKnobValue(): number {
+    return this._currentCaloriesKnobValue;
+
+    return this._currentCaloriesKnobValue > this.goalCalories
+      ? this.goalCalories
+      : this._currentCaloriesKnobValue;
   }
 
-  set currentCalories(value: number) {
-    const caloriesOverGoal: boolean = value > this.goalCalories;
+  set currentCaloriesKnobValue(value: number) {
+    const overTheGoal: boolean = value >= this.goalCalories;
+    const underTheGoal: boolean = value < this.goalCalories && value >= 0;
+    const belowZero: boolean = value < 0;
 
-    console.log(value, caloriesOverGoal);
-
-    if (caloriesOverGoal) {
+    if (overTheGoal) {
+      this._currentCaloriesKnobValue = this.goalCalories;
       this.differenceCalories = value - this.goalCalories;
-      this.currentCaloriesKnobValue = this.goalCalories;
-    } else {
-      this.differenceCalories = this.goalCalories - value;
-      this.currentCaloriesKnobValue = value;
+      // Calorie Surplus = value - this.goalCalories
+      // Set additional value
+    } else if (underTheGoal) {
+      this._currentCaloriesKnobValue = value;
+    } else if (belowZero) {
+      this._currentCaloriesKnobValue = Math.abs(value);
+      this.differenceCalories = value;
+      // Calorie Deficit = value
+      // Set additional value
     }
-
-    this._currentCalories = value;
   }
 
+  currentCalories: number = 1700;
   goalCalories: number = 1500;
+  differenceCalories: number = 0;
 
   shouldSubtractBurnedCalories: boolean = false;
-  burnedCalories: number = 2000;
-
-  differenceCalories: number = 0;
+  burnedCalories: number = 300;
 
   constructor(private dashboard: DashboardService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // Should be done when currentCalories value is set:
+    this.currentCaloriesKnobValue = this.currentCalories;
+  }
 
   onBurnedCaloriesClick(): void {
     this.shouldSubtractBurnedCalories = !this.shouldSubtractBurnedCalories;
-
-    console.log(this.shouldSubtractBurnedCalories);
 
     if (this.shouldSubtractBurnedCalories) {
       this.currentCalories -= this.burnedCalories;
     } else {
       this.currentCalories += this.burnedCalories;
     }
+
+    this.currentCaloriesKnobValue = this.currentCalories;
   }
 }

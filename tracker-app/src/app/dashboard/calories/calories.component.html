@@ -1,18 +1,40 @@
-<div class="shadow-4 border-round-lg">
+<div pRipple class="shadow-4 border-round-lg">
   <p-card header="Calories">
     <div class="flex flex-column">
-      <div class="flex justify-content-between align-items-center">
-        <p-knob
-          [(ngModel)]="currentCaloriesKnobValue"
-          [readonly]="true"
-          [max]="goalCalories"
-          [size]="200"
-        ></p-knob>
+      <div class="flex justify-content-around align-items-center">
+        <div class="p-knob-container">
+          <p-knob
+            [(ngModel)]="currentCaloriesKnobValue"
+            [readonly]="true"
+            [max]="goalCalories"
+            [size]="200"
+            [showValue]="false"
+            [valueColor]="knobValueColor"
+            [rangeColor]="knobRangeColor"
+          ></p-knob>
+          <img
+            src="assets/images/fire.svg"
+            alt="Fire Icon"
+            width="40"
+            class="burned-calories-icon"
+            *ngIf="shouldSubtractBurnedCalories"
+          />
+          <p class="knob-value">{{ currentCaloriesKnobValue }}</p>
+          <p class="additional-value">
+            <span
+              [class.under-zero]="differenceCalories < 0"
+              [class.over-goal]="differenceCalories > 0"
+            >
+              <span *ngIf="differenceCalories > 0">+</span>
+              {{ differenceCalories }}
+            </span>
+          </p>
+        </div>
 
         <!-- Additional Info -->
         <div class="flex flex-column gap-4">
           <!-- Goal -->
-          <div class="flex gap-3">
+          <div class="flex gap-2">
             <img src="assets/images/goal.svg" alt="Goal Icon" width="40" />
             <div class="flex flex-column">
               <p class="title">Goal</p>
@@ -21,7 +43,7 @@
           </div>
 
           <!-- Exercise -->
-          <div class="flex gap-3" (click)="onBurnedCaloriesClick()">
+          <div class="flex gap-2" (click)="onBurnedCaloriesClick()">
             <img src="assets/images/fire.svg" alt="Fire Icon" width="40" />
             <div class="flex flex-column">
               <p class="title">Exercise</p>
@@ -29,18 +51,6 @@
             </div>
           </div>
         </div>
-      </div>
-
-      <!-- Message -->
-      <div class="flex justify-content-center align-items-center">
-        <p *ngIf="currentCalories > goalCalories">
-          <i class="pi pi-plus"></i>
-          Calorie Surplus (+{{ differenceCalories }})
-        </p>
-        <p *ngIf="currentCalories < goalCalories">
-          <i class="pi pi-minus"></i>
-          Calorie Deficit (-{{ differenceCalories }})
-        </p>
       </div>
     </div>
   </p-card>
