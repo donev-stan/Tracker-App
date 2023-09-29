@@ -1,0 +1,47 @@
+<div class="shadow-4 border-round-lg">
+  <p-card header="Calories">
+    <div class="flex flex-column">
+      <div class="flex justify-content-between align-items-center">
+        <p-knob
+          [(ngModel)]="currentCaloriesKnobValue"
+          [readonly]="true"
+          [max]="goalCalories"
+          [size]="200"
+        ></p-knob>
+
+        <!-- Additional Info -->
+        <div class="flex flex-column gap-4">
+          <!-- Goal -->
+          <div class="flex gap-3">
+            <img src="assets/images/goal.svg" alt="Goal Icon" width="40" />
+            <div class="flex flex-column">
+              <p class="title">Goal</p>
+              <p class="value">{{ goalCalories }} cal</p>
+            </div>
+          </div>
+
+          <!-- Exercise -->
+          <div class="flex gap-3" (click)="onBurnedCaloriesClick()">
+            <img src="assets/images/fire.svg" alt="Fire Icon" width="40" />
+            <div class="flex flex-column">
+              <p class="title">Exercise</p>
+              <p class="value">{{ burnedCalories }} cal</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Message -->
+      <div class="flex justify-content-center align-items-center">
+        <p *ngIf="currentCalories > goalCalories">
+          <i class="pi pi-plus"></i>
+          Calorie Surplus (+{{ differenceCalories }})
+        </p>
+        <p *ngIf="currentCalories < goalCalories">
+          <i class="pi pi-minus"></i>
+          Calorie Deficit (-{{ differenceCalories }})
+        </p>
+      </div>
+    </div>
+  </p-card>
+</div>

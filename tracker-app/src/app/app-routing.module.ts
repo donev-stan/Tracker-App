@@ -9,6 +9,12 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+  },
+
+  {
     path: 'food-tracker',
     loadChildren: () =>
       import('./food-tracker/food-tracker.module').then(
@@ -22,7 +28,11 @@ const routes: Routes = [
         (m) => m.FitnessTrackerModule
       ),
   },
-  { path: 'account', loadChildren: () => import('./account/account.module').then(m => m.AccountModule) },
+  {
+    path: 'account',
+    loadChildren: () =>
+      import('./account/account.module').then((m) => m.AccountModule),
+  },
 ];
 
 @NgModule({
