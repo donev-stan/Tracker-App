@@ -19,6 +19,9 @@ import { ChartModule } from 'primeng/chart';
 import { AnimateModule } from 'primeng/animate';
 import { RippleModule } from 'primeng/ripple';
 
+// Media
+import { ImageModule } from 'primeng/image';
+
 @NgModule({
   imports: [
     CardModule,
@@ -32,6 +35,7 @@ import { RippleModule } from 'primeng/ripple';
     KnobModule,
     AnimateModule,
     RippleModule,
+    ImageModule,
   ],
   exports: [
     CardModule,
@@ -45,6 +49,7 @@ import { RippleModule } from 'primeng/ripple';
     KnobModule,
     AnimateModule,
     RippleModule,
+    ImageModule,
   ],
 })
 export class PrimeNgModule {}

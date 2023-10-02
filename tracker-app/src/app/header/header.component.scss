@@ -1,0 +1,24 @@
+.header-container {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  .header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .header-content {
+    position: inherit;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    padding-top: 8px;
+    width: 100%;
+    color: var(--primary-color-text);
+    z-index: 101;
+  }
+}

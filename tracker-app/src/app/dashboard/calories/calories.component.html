@@ -1,7 +1,9 @@
 <div pRipple class="shadow-4 border-round-lg">
   <p-card header="Calories">
     <div class="flex flex-column">
-      <div class="flex justify-content-around align-items-center">
+      <div
+        class="flex flex-wrap justify-content-around align-items-center gap-2 sm:gap-4"
+      >
         <div class="p-knob-container">
           <p-knob
             [(ngModel)]="currentCaloriesKnobValue"
@@ -12,41 +14,60 @@
             [valueColor]="knobValueColor"
             [rangeColor]="knobRangeColor"
           ></p-knob>
-          <img
-            src="assets/images/fire.svg"
-            alt="Fire Icon"
+
+          <div
+            svgIconDirective
+            [name]="icons.PLUS"
             width="40"
-            class="burned-calories-icon"
-            *ngIf="shouldSubtractBurnedCalories"
-          />
-          <p class="knob-value">{{ currentCaloriesKnobValue }}</p>
-          <p class="additional-value">
-            <span
-              [class.under-zero]="differenceCalories < 0"
-              [class.over-goal]="differenceCalories > 0"
-            >
-              <span *ngIf="differenceCalories > 0">+</span>
-              {{ differenceCalories }}
-            </span>
-          </p>
+            color="var(--red-400)"
+            class="plus-icon"
+            *ngIf="currentCalories > goalCalories"
+          ></div>
+
+          <p class="knob-value">{{ currentCalories }}</p>
         </div>
 
         <!-- Additional Info -->
         <div class="flex flex-column gap-4">
-          <!-- Goal -->
+          <!-- Goal Calories -->
           <div class="flex gap-2">
-            <img src="assets/images/goal.svg" alt="Goal Icon" width="40" />
+            <div
+              svgIconDirective
+              [name]="icons.GOAL"
+              width="40"
+              color="var(--green-500)"
+            ></div>
             <div class="flex flex-column">
               <p class="title">Goal</p>
               <p class="value">{{ goalCalories }} cal</p>
             </div>
           </div>
 
-          <!-- Exercise -->
-          <div class="flex gap-2" (click)="onBurnedCaloriesClick()">
-            <img src="assets/images/fire.svg" alt="Fire Icon" width="40" />
+          <!-- Total Calories-->
+          <div class="flex gap-2">
+            <div
+              svgIconDirective
+              [name]="icons.CUTLERY"
+              width="40"
+              color="var(--blue-600)"
+            ></div>
             <div class="flex flex-column">
-              <p class="title">Exercise</p>
+              <p class="title">Total</p>
+              <p class="value">{{ totalCalories }} cal</p>
+            </div>
+          </div>
+
+          <!-- Burned Calories -->
+          <div class="flex gap-2" (click)="onBurnedCaloriesClick()">
+            <div
+              svgIconDirective
+              [name]="icons.FIRE"
+              width="40"
+              color="var(--orange-500)"
+            ></div>
+
+            <div class="flex flex-column">
+              <p class="title">Burned</p>
               <p class="value">{{ burnedCalories }} cal</p>
             </div>
           </div>

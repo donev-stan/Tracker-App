@@ -1,0 +1,46 @@
+<div class="header-container">
+  <!-- Background SVG Shape -->
+  <svg
+    class="header"
+    width="100%"
+    height="80"
+    viewBox="0 0 500 80"
+    preserveAspectRatio="none"
+    style="
+      filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3));
+      fill: var(--primary-color);
+    "
+  >
+    <path d="M0,0 L0,55 Q250,80 500,55 L500,0 Z" />
+  </svg>
+
+  <!-- Content -->
+  <div class="header-content">
+    <div
+      svgIconDirective
+      [name]="icons.SETTINGS"
+      width="40"
+      color="var(--primary-color-text)"
+      (click)="navigateTo(pages.settings)"
+    ></div>
+
+    <ng-container *ngIf="runAnimation$ | async as runAnim">
+      <pre>{{ runAnim }}</pre>
+      <div
+        svgIconDirective
+        [name]="icons.HEART"
+        width="45"
+        color="var(--orange-500)"
+        (click)="navigateTo(pages.dashboard)"
+        [@myAnim]="runAnim"
+      ></div>
+    </ng-container>
+    <div
+      svgIconDirective
+      [name]="icons.ACCOUNT"
+      width="40"
+      color="var(--primary-color-text)"
+      (click)="navigateTo(pages.account)"
+    ></div>
+  </div>
+</div>

@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { PrimeNgModule } from './prime-ng/prime-ng.module';
-import { SharedComponentsModule } from './components/shared-components.module';
+import { ComponentsModule } from './components/components.module';
+import { DirectivesModule } from './directives/directives.module';
 
 @NgModule({
-  imports: [CommonModule, PrimeNgModule, SharedComponentsModule],
-  exports: [PrimeNgModule, SharedComponentsModule],
+  imports: [PrimeNgModule, ComponentsModule, DirectivesModule],
+  exports: [PrimeNgModule, ComponentsModule, DirectivesModule],
 })
 export class SharedModule {}

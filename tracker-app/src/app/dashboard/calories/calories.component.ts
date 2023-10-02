@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Icons } from 'src/config/icons.enum';
 import { DashboardService } from 'src/shared/services/dashboard.service';
 
 @Component({
@@ -7,14 +8,14 @@ import { DashboardService } from 'src/shared/services/dashboard.service';
   styleUrls: ['./calories.component.scss'],
 })
 export class CaloriesComponent {
-  knobValueColor: string = 'SlateGray';
-  knobRangeColor: string = 'MediumTurquoise';
+  readonly icons = Icons;
+
+  knobValueColor: string = 'var(--primary-color)';
+  knobRangeColor: string = 'var(--gray-600)';
 
   private _currentCaloriesKnobValue: number = 0;
 
   get currentCaloriesKnobValue(): number {
-    return this._currentCaloriesKnobValue;
-
     return this._currentCaloriesKnobValue > this.goalCalories
       ? this.goalCalories
       : this._currentCaloriesKnobValue;
@@ -27,21 +28,19 @@ export class CaloriesComponent {
 
     if (overTheGoal) {
       this._currentCaloriesKnobValue = this.goalCalories;
-      this.differenceCalories = value - this.goalCalories;
-      // Calorie Surplus = value - this.goalCalories
-      // Set additional value
+      this.knobValueColor = 'var(--red-400)';
     } else if (underTheGoal) {
       this._currentCaloriesKnobValue = value;
+      this.knobValueColor = 'var(--primary-color)';
     } else if (belowZero) {
       this._currentCaloriesKnobValue = Math.abs(value);
-      this.differenceCalories = value;
-      // Calorie Deficit = value
-      // Set additional value
+      this.knobValueColor = 'var(--cyan-300)';
     }
   }
 
   currentCalories: number = 1700;
   goalCalories: number = 1500;
+  totalCalories: number = 0;
   differenceCalories: number = 0;
 
   shouldSubtractBurnedCalories: boolean = false;
@@ -52,6 +51,7 @@ export class CaloriesComponent {
   ngOnInit(): void {
     // Should be done when currentCalories value is set:
     this.currentCaloriesKnobValue = this.currentCalories;
+    this.totalCalories = this.currentCalories;
   }
 
   onBurnedCaloriesClick(): void {

@@ -1,0 +1,12 @@
+<p-dropdown
+  [options]="groupedThemes"
+  placeholder="Select a Theme"
+  [group]="true"
+  (onChange)="switchTheme($event)"
+>
+  <ng-template let-group pTemplate="group">
+    <div class="flex align-items-center">
+      <span>{{ group.label }}</span>
+    </div>
+  </ng-template>
+</p-dropdown>

@@ -6,23 +6,15 @@
   margin: 0;
 }
 
-.over-the-goal {
-  color: var(--orange-500);
-}
-
-.under-the-goal {
-  color: var(--green-400);
-}
-
 .p-knob-container {
   position: relative;
 
-  .burned-calories-icon {
+  .plus-icon {
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translate(-50%, 0);
-    font-size: 1.5rem;
+    // font-size: 1.5rem;
   }
 
   .knob-value {
